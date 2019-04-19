@@ -1,0 +1,7 @@
+# Project files
+.idea
+node_modules
+.DS_Store
+
+# Distribution files
+dist/**
