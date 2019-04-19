@@ -1,0 +1,16 @@
+{
+    "presets": [
+     ["@babel/preset-env", {
+       "targets": {
+          "chrome": "73"
+       }
+     }],
+      "@babel/preset-react"
+    ],
+    "plugins": ["transform-class-properties"],
+    "env": {
+      "dev": {
+        "plugins": ["babel-plugin-styled-components", "react-hot-loader/babel"]
+      }
+    }
+  }
