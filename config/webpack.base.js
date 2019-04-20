@@ -8,10 +8,6 @@ module.exports = () => ({
   entry: {
     'chuck-noris-jokes': ['babel-polyfill', resolve(__dirname, './../src/index.js')],
   },
-  output: {
-    path: distPath,
-    filename: '[name].[hash].min.js',
-  },
   module: {
     rules: [
       {
@@ -19,11 +15,15 @@ module.exports = () => ({
         use: 'html-loader',
       },
       {
-        test: /\.js$/,
         exclude: /(node_modules)/,
+        test: /\.js$/,
         use: 'babel-loader',
       },
     ],
+  },
+  output: {
+    filename: '[name].[hash].min.js',
+    path: distPath,
   },
   plugins: [
     new CleanWebpackPlugin(),

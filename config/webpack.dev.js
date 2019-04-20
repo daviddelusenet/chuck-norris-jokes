@@ -5,7 +5,6 @@ const baseConfig = require('./webpack.base');
 
 module.exports = () => (
   merge(baseConfig(), {
-    devtool: 'inline-source-map',
     devServer: {
       contentBase: resolve(__dirname, './../dist'),
       historyApiFallback: true,
@@ -13,6 +12,7 @@ module.exports = () => (
       open: true,
       publicPath: '/',
     },
+    devtool: 'inline-source-map',
     plugins: [
       new webpack.NamedModulesPlugin(),
     ],
