@@ -1,14 +1,8 @@
-import {
-  ButtonRemove,
-  ButtonStar,
-  StyledJoke,
-  Text,
-} from './Joke.sc';
+import { StyledJoke, Text } from './Joke.sc';
 
+import ButtonIcon from '../ButtonIcon/ButtonIcon';
 import PropTypes from 'prop-types';
 import React from 'react';
-import StarRegular from '../../styles/svg/star-regular.svg';
-import StarSolid from '../../styles/svg/star-solid.svg';
 
 const Joke = ({
   children,
@@ -19,14 +13,13 @@ const Joke = ({
   <StyledJoke>
     <Text dangerouslySetInnerHTML={{ __html: children }} />
     {onRemoveIsStarred && (
-      <ButtonRemove onClick={onRemoveIsStarred}>
-        remove
-      </ButtonRemove>
+      <ButtonIcon onClick={onRemoveIsStarred} type={ButtonIcon.types.cross} />
     )}
     {onToggleIsStarred && (
-      <ButtonStar onClick={onToggleIsStarred}>
-        {isStarred ? <StarSolid /> : <StarRegular />}
-      </ButtonStar>
+      <ButtonIcon
+        onClick={onToggleIsStarred}
+        type={isStarred ? ButtonIcon.types.starSolid : ButtonIcon.types.starRegular}
+      />
     )}
   </StyledJoke>
 );

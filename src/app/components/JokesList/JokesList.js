@@ -1,11 +1,12 @@
-import { Button, StyledJokesList } from './JokesList.sc';
 import { getRandomJokes, toggleStarredJoke } from '../../state/actionCreators/jokesActionCreators';
 
 import { bindActionCreators } from 'redux';
+import Button from '../Button/Button';
 import { connect } from 'react-redux';
 import Joke from '../Joke/Joke';
 import PropTypes from 'prop-types';
 import React from 'react';
+import StyledJokesList from './JokesList.sc';
 
 class JokesList extends React.PureComponent {
   static propTypes = {
@@ -15,6 +16,7 @@ class JokesList extends React.PureComponent {
     }).isRequired,
     jokes: PropTypes.arrayOf(PropTypes.shape({
       id: PropTypes.number.isRequired,
+      joke: PropTypes.string.isRequired,
     })).isRequired,
     starredJokeIds: PropTypes.arrayOf(PropTypes.number).isRequired,
   };
@@ -49,8 +51,10 @@ class JokesList extends React.PureComponent {
 
     return (
       <StyledJokesList>
+        <Button onClick={this.handleGetRandomJokes}>
+          {'Get random jokes'}
+        </Button>
         {jokeArray}
-        <Button onClick={this.handleGetRandomJokes}>Get random jokes</Button>
       </StyledJokesList>
     );
   }
