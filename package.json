@@ -37,11 +37,11 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "styled-components": "^4.2.0",
-    "styled-reset": "^2.0.8"
+    "styled-reset": "^2.0.9"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
