@@ -5,6 +5,7 @@ import JOKES from '../../actions/jokesActions/jokesActions';
 const DEFAULT_STATE = {
   jokes: [],
   starredJokes: [],
+  starredJokeIds: [],
 };
 
 const jokesReducer = (state = DEFAULT_STATE, action) => {
@@ -15,24 +16,36 @@ const jokesReducer = (state = DEFAULT_STATE, action) => {
         jokes: action.jokes,
       };
 
+    case JOKES.SET_STARRED_JOKES:
+      return {
+        ...state,
+        starredJokes: action.starredJokes,
+      };
+
+    case JOKES.SET_STARRED_JOKE_IDS:
+      return {
+        ...state,
+        starredJokeIds: action.starredJokeIds,
+      };
+
     case JOKES.TOGGLE_STARRED_JOKE: {
       const { id } = action;
-      const index = state.starredJokes.indexOf(id);
+      const index = state.starredJokeIds.indexOf(id);
 
       if (index > -1) {
         return {
           ...state,
-          starredJokes: [
-            ...state.starredJokes.slice(0, index),
-            ...state.starredJokes.slice(index + 1),
+          starredJokeIds: [
+            ...state.starredJokeIds.slice(0, index),
+            ...state.starredJokeIds.slice(index + 1),
           ],
         };
       }
 
       return {
         ...state,
-        starredJokes: [
-          ...state.starredJokes,
+        starredJokeIds: [
+          ...state.starredJokeIds,
           id,
         ],
       };
