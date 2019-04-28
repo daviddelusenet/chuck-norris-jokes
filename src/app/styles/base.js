@@ -1,4 +1,4 @@
-import { LUCIDA_GRANDE, MINE_SHAFT, SEASHELL } from '../utils/consts';
+import { ALABASTER, LUCIDA_GRANDE, MINE_SHAFT } from '../utils/consts';
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 
@@ -10,9 +10,9 @@ export default createGlobalStyle`
   }
 
   html {
-    background-color: ${SEASHELL};
-    font-family: ${LUCIDA_GRANDE};
+    background-color: ${ALABASTER};
     color: ${MINE_SHAFT};
+    font-family: ${LUCIDA_GRANDE};
   }
 
   body {

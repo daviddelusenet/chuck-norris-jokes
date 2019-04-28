@@ -1,8 +1,9 @@
 // Color variables
 // Color names by http://chir.ag/projects/name-that-color/
+export const ALABASTER = '#fafafa';
 export const BLACK = '#000';
 export const MINE_SHAFT = '#323232';
-export const SEASHELL = '#f1f1f1';
+export const SILVER = '#c0c0c0';
 export const WHITE = '#fff';
 
 // Fonts
