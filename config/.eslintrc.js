@@ -27,6 +27,7 @@ module.exports = {
       ignoreTemplateLiterals: true,
       tabWidth: 2,
     }],
+    'no-alert': 0,
     'object-property-newline': ['error', {
       allowAllPropertiesOnSameLine: false,
     }],
