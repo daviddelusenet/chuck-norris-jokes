@@ -2,6 +2,7 @@
 // Color names by http://chir.ag/projects/name-that-color/
 export const ALABASTER = '#fafafa';
 export const BLACK = '#000';
+export const FROLY = '#f57584';
 export const MINE_SHAFT = '#323232';
 export const SILVER = '#c0c0c0';
 export const WHITE = '#fff';
