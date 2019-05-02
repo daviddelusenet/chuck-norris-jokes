@@ -1,6 +1,11 @@
-import { getStarredJokeIdsFromLocalStorage, toggleStarredJoke } from '../../state/actionCreators/jokesActionCreators';
+import {
+  fillStarredJokesList,
+  getStarredJokeIdsFromLocalStorage,
+  toggleStarredJoke,
+} from '../../state/actionCreators/jokesActionCreators';
 
 import { bindActionCreators } from 'redux';
+import Button from '../Button/Button';
 import { connect } from 'react-redux';
 import Joke from '../Joke/Joke';
 import PropTypes from 'prop-types';
@@ -10,11 +15,13 @@ import { StyledStarredJokesList } from './StarredJokesList.sc';
 class StarredJokesList extends React.PureComponent {
   static propTypes = {
     actions: PropTypes.shape({
+      fillStarredJokesList: PropTypes.func.isRequired,
       getStarredJokeIdsFromLocalStorage: PropTypes.func.isRequired,
       toggleStarredJoke: PropTypes.func.isRequired,
     }).isRequired,
     starredJokes: PropTypes.arrayOf(PropTypes.shape({
-
+      id: PropTypes.number.isRequired,
+      joke: PropTypes.string.isRequired,
     })).isRequired,
   };
 
@@ -22,6 +29,11 @@ class StarredJokesList extends React.PureComponent {
     const { actions } = this.props;
     actions.getStarredJokeIdsFromLocalStorage();
   }
+
+  handleFillList = () => {
+    const { actions } = this.props;
+    actions.fillStarredJokesList();
+  };
 
   handleRemoveStarredJoke = id => () => {
     const { actions } = this.props;
@@ -31,7 +43,7 @@ class StarredJokesList extends React.PureComponent {
   render() {
     const { starredJokes } = this.props;
 
-    const jokeArray = starredJokes.map(({ id, joke }) => (
+    const starredJokeArray = starredJokes.map(({ id, joke }) => (
       <Joke
         id={id}
         key={id}
@@ -43,7 +55,10 @@ class StarredJokesList extends React.PureComponent {
 
     return (
       <StyledStarredJokesList>
-        {jokeArray}
+        <Button onClick={this.handleFillList}>
+          {'Fill starred jokes list'}
+        </Button>
+        {starredJokeArray}
       </StyledStarredJokesList>
     );
   }
@@ -55,6 +70,7 @@ const mapStateToProps = ({ jokes: { starredJokes } }) => ({
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
+    fillStarredJokesList,
     getStarredJokeIdsFromLocalStorage,
     toggleStarredJoke,
   }, dispatch),

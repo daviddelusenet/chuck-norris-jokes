@@ -1,4 +1,4 @@
-import { getRandomJokes, toggleStarredJoke } from '../../state/actionCreators/jokesActionCreators';
+import { addRandomJokes, toggleStarredJoke } from '../../state/actionCreators/jokesActionCreators';
 
 import { bindActionCreators } from 'redux';
 import Button from '../Button/Button';
@@ -11,7 +11,7 @@ import StyledJokesList from './JokesList.sc';
 class JokesList extends React.PureComponent {
   static propTypes = {
     actions: PropTypes.shape({
-      getRandomJokes: PropTypes.func.isRequired,
+      addRandomJokes: PropTypes.func.isRequired,
       toggleStarredJoke: PropTypes.func.isRequired,
     }).isRequired,
     jokes: PropTypes.arrayOf(PropTypes.shape({
@@ -23,7 +23,7 @@ class JokesList extends React.PureComponent {
 
   handleGetRandomJokes = () => {
     const { actions } = this.props;
-    actions.getRandomJokes(10);
+    actions.addRandomJokes(10);
   };
 
   handleToggleStarredJoke = id => () => {
@@ -67,7 +67,7 @@ const mapStateToProps = ({ jokes: { jokes, starredJokeIds } }) => ({
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
-    getRandomJokes,
+    addRandomJokes,
     toggleStarredJoke,
   }, dispatch),
 });
