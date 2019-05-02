@@ -1,4 +1,3 @@
-import { SILVER } from '../../utils/consts';
 import styled from 'styled-components';
 
 const StyledButtonIcon = styled.button`
@@ -15,7 +14,6 @@ const StyledButtonIcon = styled.button`
   svg {
     width: 40px;
     height: 40px;
-    fill: ${SILVER};
   }
 `;
 

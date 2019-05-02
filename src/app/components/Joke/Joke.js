@@ -1,3 +1,4 @@
+import { FROLY, SILVER } from '../../utils/consts';
 import { StyledJoke, Text } from './Joke.sc';
 
 import ButtonIcon from '../ButtonIcon/ButtonIcon';
@@ -17,6 +18,7 @@ const Joke = ({
     )}
     {onToggleIsStarred && (
       <ButtonIcon
+        fill={isStarred ? FROLY : SILVER}
         onClick={onToggleIsStarred}
         type={isStarred ? ButtonIcon.types.starSolid : ButtonIcon.types.starRegular}
       />
